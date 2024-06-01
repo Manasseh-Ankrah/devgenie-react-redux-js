@@ -1,16 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "../styles/header.css";
 import { Outlet } from "react-router-dom";
+import { setDarkMode } from "../store/darkModeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
-  const isDarkMode = true;
+  const dispatch = useDispatch();
+
+  const isDark = useSelector((state) => state.darkMode.isDarkMode);
   const toggleMode = () => {
-    // dispatch({
-    //   type: "TOGGLE_DARK_MODE",
-    //   item: {
-    //     isDarkMode,
-    //   },
-    // });
+    dispatch(
+      setDarkMode({
+        isDarkMode: !isDark,
+      })
+    );
   };
 
   return (
@@ -19,7 +22,7 @@ const Header = () => {
         <div className='logo'>
           <a href='/'>Logo</a>
         </div>
-        <nav className={`nav ${isDarkMode ? "nav-open" : ""}`}>
+        <nav className={`nav ${isDark ? "nav-open" : ""}`}>
           <ul className='nav-list'>
             <li className='nav-item'>
               <a href='/'>Home</a>
@@ -32,7 +35,7 @@ const Header = () => {
             </li>
             <li className='nav-item'>
               <button onClick={() => toggleMode()}>
-                {isDarkMode ? "-- On --" : "-- Off --"}
+                {isDark ? "-- On --" : "-- Off --"}
               </button>
             </li>
           </ul>

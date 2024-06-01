@@ -5,16 +5,18 @@ import storage from "redux-persist/lib/storage";
 
 import { api } from "../services/api";
 import auth from "./auth";
+import darkModeSlice from "./darkModeSlice";
 
 const reducers = combineReducers({
   auth,
   api: api.reducer,
+  darkMode: darkModeSlice,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["auth"],
+  whitelist: ["auth", "darkMode"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

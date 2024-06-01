@@ -1,14 +1,14 @@
 import React from "react";
 import "../styles/App.css";
+import { useSelector } from "react-redux";
 function Page() {
-  const isDarkMode = true;
+  const isDark = useSelector((state) => state.darkMode.isDarkMode);
 
   return (
-    <div className={`home ${isDarkMode ? "darkTheme" : "lightTheme"}`}>
+    <div className={`home ${isDark ? "darkTheme" : "lightTheme"}`}>
       <a className='App-link' href='' target='_blank' rel='noopener noreferrer'>
         🧞‍♂️💥About Page💥🧞‍♂️
       </a>
-      <h1>{isDarkMode}</h1>
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import logo from "../../logo.svg";
 import "../styles/App.css";
+import { useSelector } from "react-redux";
 function Page() {
-  const isDarkMode = true;
+  const isDark = useSelector((state) => state.darkMode.isDarkMode);
 
   return (
-    <div className={`home ${isDarkMode ? "darkTheme" : "lightTheme"}`}>
+    <div className={`home ${isDark ? "darkTheme" : "lightTheme"}`}>
       <img src={logo} className='App-logo' alt='logo' />
 
       <a

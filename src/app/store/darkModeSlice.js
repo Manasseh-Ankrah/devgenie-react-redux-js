@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PURGE } from "redux-persist";
 
 const slice = createSlice({
   name: "darkMode",
@@ -8,14 +7,10 @@ const slice = createSlice({
   },
   reducers: {
     setDarkMode: (state) => {
-      state.isDarkMode = !state.isDarkMode;
+      state.isDarkMode = state.isDarkMode;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(PURGE, (state) => {
-      customEntityAdapter.removeAll(state);
-    });
-  },
+  extraReducers: (builder) => {},
 });
 
 export const { setDarkMode } = slice.actions;
