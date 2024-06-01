@@ -6,8 +6,8 @@ const slice = createSlice({
     isDarkMode: false,
   },
   reducers: {
-    setDarkMode: (state) => {
-      state.isDarkMode = state.isDarkMode;
+    setDarkMode: (state, { payload }) => {
+      state.isDarkMode = payload.isDarkMode;
     },
   },
   extraReducers: (builder) => {},
