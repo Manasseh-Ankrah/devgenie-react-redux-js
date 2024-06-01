@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import logo from "../../logo.svg";
 import "../styles/App.css";
-import { useStateValue } from "../context/ThemeContext";
 function Page() {
-  const [{ isDarkMode }, dispatch] = useStateValue();
+  const isDarkMode = true;
 
   return (
     <div className={`home ${isDarkMode ? "darkTheme" : "lightTheme"}`}>
@@ -15,7 +14,7 @@ function Page() {
         target='_blank'
         rel='noopener noreferrer'
       >
-        🧞‍♂️💥DevGenie React Context Setup💥🧞‍♂️
+        🧞‍♂️💥DevGenie React Redux Setup💥🧞‍♂️
       </a>
     </div>
   );

@@ -3,14 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "./app/context/ThemeContext";
-import reducer, { initialState } from "./app/context/reducer";
-
+import { PersistGate } from "redux-persist/lib/integration/react";
+import { store, persistor } from "./app/store";
+import { Provider } from "react-redux";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider initialState={initialState} reducer={reducer}>
-    <App />
-  </ThemeProvider>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

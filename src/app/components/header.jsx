@@ -1,18 +1,16 @@
 import React, { useContext, useState } from "react";
 import "../styles/header.css";
 import { Outlet } from "react-router-dom";
-import { useStateValue } from "../context/ThemeContext";
 
 const Header = () => {
-  const [{ isDarkMode }, dispatch] = useStateValue();
-
+  const isDarkMode = true;
   const toggleMode = () => {
-    dispatch({
-      type: "TOGGLE_DARK_MODE",
-      item: {
-        isDarkMode,
-      },
-    });
+    // dispatch({
+    //   type: "TOGGLE_DARK_MODE",
+    //   item: {
+    //     isDarkMode,
+    //   },
+    // });
   };
 
   return (

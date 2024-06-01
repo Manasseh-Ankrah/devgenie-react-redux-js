@@ -1,8 +1,7 @@
 import React from "react";
 import "../styles/App.css";
-import { useStateValue } from "../context/ThemeContext";
 function Page() {
-  const [{ isDarkMode }, dispatch] = useStateValue();
+  const isDarkMode = true;
 
   return (
     <div className={`home ${isDarkMode ? "darkTheme" : "lightTheme"}`}>
